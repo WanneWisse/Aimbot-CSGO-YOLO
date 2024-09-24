@@ -9,4 +9,4 @@ The "none" class is there because the dataset is labeled with 1-5 while the netw
 Todo: 
   Change how the mouse moves from current pos to head (uing RL)
   Using tensorRT to increase inference speed
-![alt text](https://github.com/Aimbot-CSGO-YOLO/main/Aim_screenshot.png?raw=true)
+![alt text](https://github.com/WanneWisse/Aimbot-CSGO-YOLO/blob/main/Aim_screenshot.png?raw=true)
