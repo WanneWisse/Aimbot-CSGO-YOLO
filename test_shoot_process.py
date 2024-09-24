@@ -11,10 +11,7 @@ import dxcam
 from ultralytics import YOLO
 import time
 
-#Load a pre-trained YOLOv8 model (choose from yolov8n, yolov8s, yolov8m, yolov8l, yolov8x)
-model = YOLO('trained_yolo_model.pt').to('cuda')  # 'n' is for nano version, can be replaced with 's', 'm', 'l', 'x'
-
-# Run detection on an image
+model = YOLO('trained_yolo_model.pt').to('cuda')  
 
 
 def get_window_rect():
@@ -32,8 +29,7 @@ def start_dxcam():
     return dx, width,height
 
 def move_mouse(bbox,width,height):
-    # Calculate the movement (half the screen width)
-    
+    #Calculate the movement (half the screen width)
     #update logic to be faster
     width_bbox = np.sqrt((bbox[2] - bbox[0])**2)
     height_bbox = np.sqrt((bbox[3] - bbox[1])**2)
@@ -41,7 +37,7 @@ def move_mouse(bbox,width,height):
     dx = int((bbox[0] + width_bbox/2 - width/2)) * 2
     dy = int((bbox[1] + height_bbox/2 - height/2)) *2 
 
-    # Move the mouse relative to its current position
+    #Move the mouse relative to its current position
     win32api.mouse_event(win32con.MOUSEEVENTF_MOVE, dx, dy, 0, 0)
     if dx < 10 and dy < 10:
         win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0,0)
