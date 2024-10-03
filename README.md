@@ -1,12 +1,21 @@
-Aimbot for CS2
+# Aimbot for CS2
 
-This is aimbot is based on the yolo10 network which has very high inference speed and the win32api to click on the screen.
-This project is based on the code and dataset of Ömer Faruk Günaydın! 
-His code really helped me understanding all the different parts of the project, so a big shoutout to him!
-Hereby a link to his dataset: https://www.kaggle.com/datasets/merfarukgnaydn/counter-strike-2-body-and-head-classification
-The yolo network has five classes to predict, [ "none", "ct_body", "ct_head","t_body","t_head"]. 
-The "none" class is there because the dataset is labeled with 1-5 while the network is trained from 0.
-Todo: 
-  Change how the mouse moves from current pos to head (uing RL)
-  Using tensorRT to increase inference speed
-![alt text](https://github.com/WanneWisse/Aimbot-CSGO-YOLO/blob/main/Aim_screenshot.png?raw=true)
+This aimbot is based on the **YOLOv10** network, which offers a very high inference speed, and utilizes the **Win32 API** to simulate mouse clicks on the screen.
+
+This project leverages the code and dataset provided by **Ömer Faruk Günaydın**. His contributions were instrumental in helping me understand the various components of the project, so a big shoutout to him! You can find his dataset [here](https://www.kaggle.com/datasets/merfarukgnaydn/counter-strike-2-body-and-head-classification).
+
+## Prediction Classes
+The YOLO network predicts five classes:
+- **none**
+- **ct_body**
+- **ct_head**
+- **t_body**
+- **t_head**
+
+The "none" class is included because the dataset is labeled with values 1-5, while the network is trained using a zero-based index (0-4).
+
+## To-Do List
+- Change how the mouse moves from the current position to the target head using Reinforcement Learning (RL).
+- Implement TensorRT to increase inference speed.
+
+![Aimbot Screenshot](https://github.com/WanneWisse/Aimbot-CSGO-YOLO/blob/main/Aim_screenshot.png?raw=true)
