@@ -3,13 +3,13 @@ import multiprocessing
 
 def train_model():
     # Load the pre-trained YOLOv8 model
-    model = YOLO('trained_yolo_model.pt')
-    results = model.train(data='datasets/data.yaml', imgsz=320, epochs=300, batch=16)
+    model = YOLO("yolo11n.pt")  # load a pretrained model (recommended for training)
+    results = model.train(data="RoboFlow/data.yaml", epochs=300, imgsz=640,batch=32,single_cls=True,val=False)
 
     # Save the trained model (optional)
-    model.save('trained_yolo_model.pt')
+    model.save('trained_yolo_single.pt')
 
-    metrics = model.val(data='datasets/data.yaml')
+    metrics = model.val(data='RoboFlow/data.yaml')
     print(metrics)
     return results
 
