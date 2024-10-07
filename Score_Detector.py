@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from camera import Camera
 class ScoreDetector():
-    def __init__(self):
+    def __init__(self,queue):
         self.bright = False
         self.count_next_flair = True
         self.window_check_length = 4
@@ -14,6 +14,7 @@ class ScoreDetector():
         self.left, self.top, self.width, self.height = self.cam.get_window_rect("Counter-Strike 2")
         self.region = self.get_window_coords(self.left, self.top, self.width, self.height)
         self.cam_dxinstance = self.cam.start_dxcam(self.region,60)
+        self.queue = queue
 
     def get_window_coords(self,left,top,width,height):
         start_x = int(left + 7 + width/2 - 20)
@@ -28,6 +29,7 @@ class ScoreDetector():
             frame = np.array(img)
             kill,kills,sum_binary_list = self.detect_score_frame(frame)
             if kill:
+                self.queue.put(kill)
                 print(kills)
             cv2.imshow("Recording with Bboxes", frame)
             if cv2.waitKey(1) == ord("q"):

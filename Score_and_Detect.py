@@ -6,11 +6,12 @@ from Score_Detector import ScoreDetector
 
 def score_detection(queue):
     """Simulates a kill detection system."""
-    score_detector = ScoreDetector()
+    score_detector = ScoreDetector(queue)
     score_detector.parse_frames()
 
+
 def bounding_box_detection(queue):
-    bbox_detector = BBoxDetector()
+    bbox_detector = BBoxDetector(queue)
     bbox_detector.parse_frames()
     
     
